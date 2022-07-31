@@ -1,0 +1,63 @@
+﻿@model IEnumerable<transport.Models.teacher>
+
+@{
+    ViewData["Title"] = "الطلبات";
+}
+
+<h1>الطلبات</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.teacherName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.city)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.birth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.last)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hire)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.desire)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.teacherName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.city)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.birth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.last)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hire)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.desire.desirename)
+            </td>
+            <td>
+                <a asp-action="Details " class="btn btn-primary" asp-route-id="@item.teacherid">عرض الطلب</a> |
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.teacherid">حذف الطلب</a>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
